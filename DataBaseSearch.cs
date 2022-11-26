@@ -14,7 +14,7 @@ namespace testPR
 
         public async Task<List<Article>> Get(List<int> idList)
         {
-           return await _applicationContext.Articles.Where(x=> idList.Contains(x.ID)).OrderBy(x=>x.CreatedDate).ToListAsync();
+           return await _applicationContext.Articles.AsNoTracking().Where(x=> idList.Contains(x.ID)).OrderBy(x=>x.CreatedDate).ToListAsync();
         }
     }
 }
